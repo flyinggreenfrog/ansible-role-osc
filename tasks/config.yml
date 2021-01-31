@@ -1,0 +1,23 @@
+---
+- name: 'conf dir - ensure created'
+  file:
+    dest: '{{ item.home }}/.config/osc'
+    state: 'directory'
+    owner: '{{ item.user }}'
+    group: '{{ item.group }}'
+    mode: 0700
+  loop_control:
+    label: '{{ item.home }}/.config/osc'
+  loop: '{{ osc__users }}'
+
+- name: 'conf file - ensure created'
+  template:
+    dest: '{{ item.home }}/.config/osc/oscrc'
+    src: 'oscrc.j2'
+    owner: '{{ item.user }}'
+    group: '{{ item.group }}'
+    mode: 0400
+  no_log: true
+  loop_control:
+    label: '{{ item.home }}/.config/osc/oscrc'
+  loop: '{{ osc__users }}'

@@ -1,0 +1,8 @@
+---
+osc__packages:
+  - 'osc'
+  - 'obs-service-download_files'
+  - 'rpm-build'
+  - 'rpm-devel'
+  - 'rpmlint'
+  - 'rpmdevtools'

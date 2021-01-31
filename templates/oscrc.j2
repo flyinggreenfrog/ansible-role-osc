@@ -1,0 +1,13 @@
+{{ ansible_managed | comment }}
+
+[general]
+apiurl = {{ item.osc__api_defaultserver|d(osc__api_defaultserver) }}
+su-wrapper = sudo
+{% for server in item.osc__api_servers %}
+
+[{{ server.url }}]
+aliases = {{ server.alias }}
+user = {{ server.username }}
+pass = {{ server.password }}
+credentials_mgr_class = osc.credentials.PlaintextConfigFileCredentialsManager
+{% endfor %}

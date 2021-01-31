@@ -1,0 +1,5 @@
+---
+- name: 'packages - ensure state'
+  package:
+    name: '{{ osc__packages }}'
+    state: '{{ osc__packages_state }}'

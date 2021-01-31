@@ -1,0 +1,13 @@
+---
+osc__packages_manage: true
+osc__packages_state: 'present'
+#osc__users:
+#  - user: 'tux'
+#    group: 'users'
+#    home: '/home/tux'
+#    osc__api_servers:
+#      - alias: 'obs'
+#        url: 'https://api.opensuse.org'
+#        username: 'testuser'
+#        password: 'secret'
+osc__api_defaultserver: 'https://api.opensuse.org'

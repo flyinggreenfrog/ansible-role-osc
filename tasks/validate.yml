@@ -1,0 +1,29 @@
+---
+- block:
+    - name: 'validate variables'
+      assert:
+        that:
+          - osc__packages_manage is boolean
+          - osc__packages_state in ['present', 'absent']
+          - osc__packages is not string and
+            osc__packages is not mapping and
+            osc__packages is sequence
+          - osc__users is not string and
+            osc__users is not mapping and
+            osc__users is sequence
+          - osc__api_defaultserver is string
+        quiet: true
+  rescue:
+    - name: 'output variable values'
+      debug:
+        msg: "{{ lookup('vars', item) }}"
+      loop:
+        - osc__packages_manage
+        - osc__packages_state
+        - osc__packages
+        - osc__users
+        - osc__api_defaultserver
+
+    - name: 'fail -> variable validation errors'
+      fail:
+        msg: 'check variables in last 2 tasks'

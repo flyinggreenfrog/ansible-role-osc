@@ -1,0 +1,10 @@
+---
+osc__users:
+  - user: 'vagrant'
+    group: 'vagrant'
+    home: '/home/vagrant'
+    osc__api_servers:
+      - alias: 'obs'
+        url: 'https://api.opensuse.org'
+        username: 'USERNAME'
+        password: 'PASSWORD'

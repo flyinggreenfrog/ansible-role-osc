@@ -1,0 +1,24 @@
+---
+- name: 'Prepare'
+  hosts: 'all'
+  become: true
+  vars:
+    ansible_python_interpreter: '/usr/bin/python'
+  tasks:
+    - name: 'needed packages - ensure installed'
+      package:
+        state: 'present'
+        name:
+          - 'python3'
+      when: ansible_os_family == 'Suse'
+
+    - name: '.zshrc.d/ - ensure created'
+      file:
+        dest: '{{ item.home }}/.zshrc.d'
+        state: 'directory'
+        owner: '{{ item.user }}'
+        group: '{{ item.group }}'
+        mode: 0700
+      loop_control:
+        label: '{{ item.home }}/.zshrc.d'
+      loop: '{{ osc__users }}'

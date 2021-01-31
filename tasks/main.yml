@@ -1,0 +1,13 @@
+---
+- import_tasks: 'validate.yml'
+  tags: 'osc'
+
+- import_tasks: 'packages.yml'
+  when: osc__packages_manage
+  tags: 'osc'
+
+- import_tasks: 'config.yml'
+  tags: 'osc'
+
+- import_tasks: 'zsh.yml'
+  tags: 'osc'
