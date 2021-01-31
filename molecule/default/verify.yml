@@ -3,9 +3,9 @@
   hosts: 'all'
   become: true
   tasks:
-    - name: 'default role variables - ensure included'
+    - name: 'include default role variables'
       # ansible-lint: [E505] referenced missing file in
       include_vars: '../../defaults/main.yml'  # noqa 505
 
-    - name: 'OS specific role variables - ensure included'
+    - name: 'include OS family specific role variables'
       include_vars: '../../vars/{{ ansible_os_family }}.yml'
