@@ -1,4 +1,4 @@
-# flyinggreenfrog.osc
+# Ansible role flyinggreenfrog.osc
 
 ## Description
 
